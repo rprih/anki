@@ -15,7 +15,7 @@ export function usePersistentState<S>(
 ) {
   const [state, setState] = useState()
 
-  useEffect(() => {}, [key])
+  // useEffect(() => {}, [key])
 
   return [state, setState]
 }
