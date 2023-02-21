@@ -4,7 +4,7 @@ import { StorageNavigationStack } from "./types/storage-navigation-stack"
 import { FoldersListScreen } from "./organisms/folders-list-screen"
 import { FolderNavigationHeader } from "./organisms/folder-navigation-header"
 import { FoldersListNavigationHeader } from "./organisms/folders-list-navigation-header"
-import { FolderScreen } from "./organisms/folder-screen"
+import { CardsListScreen } from "./organisms/cards-list-screen"
 
 const Stack = createNativeStackNavigator<StorageNavigationStack>()
 
@@ -13,13 +13,13 @@ export const Storage: FC = () => {
     <Stack.Navigator>
       <Stack.Screen
         options={{ header: FoldersListNavigationHeader }}
-        name="Main"
+        name="FoldersList"
         component={FoldersListScreen}
       />
       <Stack.Screen
         options={{ header: FolderNavigationHeader }}
-        name="Folder"
-        component={FolderScreen}
+        name="CardsList"
+        component={CardsListScreen}
       />
     </Stack.Navigator>
   )

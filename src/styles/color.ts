@@ -16,6 +16,7 @@ export const UniversalColorVariants = [
   "Attention600",
   "Attention700",
   "Attention800",
+  "Success500",
 ] as const
 
 export const ColorVariants = [
@@ -49,6 +50,7 @@ export const UniversalColor: Record<
   Attention600: "#BF3636",
   Attention700: "#8F2929",
   Attention800: "#601B1B",
+  Success500: "#39D98A",
 } as const
 
 export type Color = Record<(typeof ColorVariants)[number], string>

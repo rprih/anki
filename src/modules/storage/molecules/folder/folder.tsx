@@ -5,7 +5,7 @@ import styled from "styled-components/native"
 import { Text } from "../../../../atoms/text"
 import { hexToRGB } from "../../../../utils/color"
 import { Icon } from "../../atoms/icon"
-import { FolderActions } from "./molecules/folder-actions"
+import { ListItemAction } from "../list-item-actions"
 
 export interface FolderStatus {
   easy: number
@@ -32,7 +32,7 @@ export const Folder: FC<FolderProps> = ({
   const [isPressed, setIsPressed] = useState(false)
 
   const renderActions = useCallback(
-    () => <FolderActions onDelete={onDelete} onEdit={onEdit} />,
+    () => <ListItemAction onDelete={onDelete} onEdit={onEdit} />,
     [],
   )
 

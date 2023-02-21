@@ -11,7 +11,7 @@ import { DeleteConfirmation } from "../../molecules/delete-confirmation"
 
 export type FoldersListScreenProps = NativeStackScreenProps<
   StorageNavigationStack,
-  "Main"
+  "FoldersList"
 >
 
 export const FoldersListScreen: FC<FoldersListScreenProps> = ({
@@ -29,7 +29,7 @@ export const FoldersListScreen: FC<FoldersListScreenProps> = ({
         }}
         onEdit={() => setSheetIsOpen(true)}
         onPress={() => {
-          navigation.navigate("Folder", {
+          navigation.navigate("CardsList", {
             id: item.id,
             name: item.name,
             amount: item.cardsAmount,

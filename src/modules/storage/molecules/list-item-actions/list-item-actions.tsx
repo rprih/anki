@@ -3,33 +3,41 @@ import styled from "styled-components/native"
 import { DeleteSvg } from "./icons/delete-svg"
 import { OptionsSvg } from "./icons/options-svg"
 
-export interface FolderActionsProps {
-  onEdit: () => void
-  onDelete: () => void
+export interface ListItemActionsProps {
+  onEdit?: () => void
+  onDelete?: () => void
 }
 
-export const FolderActions: FC<FolderActionsProps> = ({ onEdit, onDelete }) => {
+export const ListItemAction: FC<ListItemActionsProps> = ({
+  onEdit,
+  onDelete,
+}) => {
   const [isEditPressed, setIsEditPressed] = useState(false)
   const [isDeletePressed, setIsDeletePressed] = useState(false)
 
   return (
     <Container>
-      <EditAction
-        onPressIn={() => setIsEditPressed(true)}
-        onPressOut={() => setIsEditPressed(false)}
-        onPress={onEdit}
-        isPressed={isEditPressed}
-      >
-        <OptionsSvg />
-      </EditAction>
-      <DeleteAction
-        onPressIn={() => setIsDeletePressed(true)}
-        onPressOut={() => setIsDeletePressed(false)}
-        onPress={onDelete}
-        isPressed={isDeletePressed}
-      >
-        <DeleteSvg />
-      </DeleteAction>
+      {onEdit && (
+        <EditAction
+          onPressIn={() => setIsEditPressed(true)}
+          onPressOut={() => setIsEditPressed(false)}
+          onPress={onEdit}
+          isPressed={isEditPressed}
+        >
+          <OptionsSvg />
+        </EditAction>
+      )}
+
+      {onDelete && (
+        <DeleteAction
+          onPressIn={() => setIsDeletePressed(true)}
+          onPressOut={() => setIsDeletePressed(false)}
+          onPress={onDelete}
+          isPressed={isDeletePressed}
+        >
+          <DeleteSvg />
+        </DeleteAction>
+      )}
     </Container>
   )
 }

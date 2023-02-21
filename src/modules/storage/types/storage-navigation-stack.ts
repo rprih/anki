@@ -1,4 +1,5 @@
 export type StorageNavigationStack = {
-  Main: undefined
-  Folder: { id: string; name: string; amount: number }
+  FoldersList: undefined
+  CardsList: { id: string; name: string; amount: number }
+  Card: { id: string; name: string }
 }
