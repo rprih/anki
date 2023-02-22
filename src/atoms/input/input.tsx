@@ -1,6 +1,7 @@
 import { forwardRef, useState } from "react"
 import { TextInput, TextInputProps, useColorScheme } from "react-native"
 import styled from "styled-components/native"
+import { useCurrectTheme } from "../../hooks/use-current-theme"
 
 export interface InputProps extends TextInputProps {
   isError?: boolean
@@ -8,10 +9,12 @@ export interface InputProps extends TextInputProps {
 
 export const Input = forwardRef<TextInput, InputProps>(
   ({ style, onFocus, onBlur, isError, ...props }, ref) => {
+    const theme = useCurrectTheme()
     const [isFocused, setIsFocused] = useState(false)
 
     return (
       <StyledInput
+        placeholderTextColor={theme.Color.Neutral300}
         style={style}
         isFocused={isFocused}
         isError={isError ?? false}
