@@ -1,5 +1,5 @@
-import { View } from "react-native"
+import { ScrollView } from "react-native"
 
 export const Feed = () => {
-  return <View />
+  return <ScrollView></ScrollView>
 }

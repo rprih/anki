@@ -11,6 +11,7 @@ import { TabNavigationIcon } from "./src/atoms/tab-navigation-icon"
 import { Storage } from "./src/modules/storage"
 import { Settings } from "./src/modules/settings"
 import { Feed } from "./src/modules/feed"
+import { DefaultNavigationHeader } from "./src/organisms/default-navigation-header"
 
 const Tab = createBottomTabNavigator()
 
@@ -47,16 +48,14 @@ export default function App() {
           }}
         >
           {/* <Auth /> */}
-          <Tab.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
+          <Tab.Navigator>
             <Tab.Screen
               name={"Feed"}
               component={Feed}
               options={{
                 tabBarIcon: TabNavigationIcon.Feed,
+                header: DefaultNavigationHeader,
+                headerTitle: "Feed",
               }}
             />
             <Tab.Screen
@@ -64,6 +63,7 @@ export default function App() {
               component={Storage}
               options={{
                 tabBarIcon: TabNavigationIcon.Storage,
+                headerShown: false,
               }}
             />
             <Tab.Screen
@@ -71,6 +71,8 @@ export default function App() {
               component={Settings}
               options={{
                 tabBarIcon: TabNavigationIcon.Settings,
+                header: DefaultNavigationHeader,
+                headerTitle: "Settings",
               }}
             />
           </Tab.Navigator>
