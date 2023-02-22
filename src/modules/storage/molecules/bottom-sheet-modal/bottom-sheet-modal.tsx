@@ -4,6 +4,7 @@ import {
 } from "@gorhom/bottom-sheet"
 import { BlurView } from "expo-blur"
 import { FC, PropsWithChildren, useEffect, useRef } from "react"
+import { SharedValue } from "react-native-reanimated"
 import styled from "styled-components/native"
 import { useCurrectTheme } from "../../../../hooks/use-current-theme"
 import { hexToRGB } from "../../../../utils/color"
@@ -11,12 +12,14 @@ import { hexToRGB } from "../../../../utils/color"
 export interface BottomSheetModalProps extends PropsWithChildren {
   isOpen: boolean
   onClose?: () => void
+  snapPoints?: (string | number)[] | SharedValue<(string | number)[]>
 }
 
 export const BottomSheetModal: FC<BottomSheetModalProps> = ({
   isOpen,
   onClose,
   children,
+  snapPoints = [360],
 }) => {
   const ref = useRef<NativeBottomSheetModal>(null)
   const theme = useCurrectTheme()
@@ -43,7 +46,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = ({
         </Backdrop>
       )}
       ref={ref}
-      snapPoints={[360]}
+      snapPoints={snapPoints}
       onChange={(index) => index === -1 && onClose?.()}
     >
       <Container>{children}</Container>

@@ -26,6 +26,23 @@ const CardsAmount: FC<SvgProps> = (props) => {
   )
 }
 
+const Arrow: FC<SvgProps> = (props) => {
+  const theme = useCurrectTheme()
+
+  return (
+    <Svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
+      <Path
+        d="M16 14l-4-4-4 4"
+        stroke={theme.Color.Neutral300}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  )
+}
+
 export const Icon = {
   CardsAmount,
+  Arrow,
 }
