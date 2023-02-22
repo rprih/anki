@@ -2,7 +2,7 @@ import { NativeStackHeaderProps } from "@react-navigation/native-stack"
 import { FC } from "react"
 import Svg, { SvgProps, Path } from "react-native-svg"
 import { StorageNavigationStack } from "../../types/storage-navigation-stack"
-import { NavigationHeader } from "../../molecules/navigation-header"
+import { NavigationHeader } from "../../../../molecules/navigation-header"
 import { Text } from "../../../../atoms/text"
 import { useCurrectTheme } from "../../../../hooks/use-current-theme"
 import styled from "styled-components/native"
@@ -13,7 +13,7 @@ export const FolderNavigationHeader: FC<NativeStackHeaderProps> = ({
   route,
   navigation,
 }) => {
-  const params = route.params as StorageNavigationStack["Folder"]
+  const params = route.params as StorageNavigationStack["CardsList"]
 
   return (
     <NavigationHeader>
